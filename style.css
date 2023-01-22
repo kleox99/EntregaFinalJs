@@ -1,0 +1,37 @@
+.text {
+    color: white
+}
+
+.arrowBtn {
+    border-radius: 50%;
+    border-color: orangered;
+    background-color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.textInput {
+    color: rgb(150, 149, 149);
+    max-width: 30vw;
+}
+
+.img-hero {
+    width: clamp(30rem, 15vw, 40rem);
+    height: auto;
+    animation: logoCentral 3s ease-in-out forwards;
+    filter: drop-shadow( 16px 16px 16px #1a1422ad);
+    padding-left: 70px;
+}
+
+@keyframes logoCentral {
+    0% {
+        scale: 0.5;
+        opacity: 0;
+    }
+    100% {
+        scale:  1;
+        opacity: 1;
+    }
+}
