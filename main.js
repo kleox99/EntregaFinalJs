@@ -6,6 +6,7 @@ const namePokemon = document.getElementById("namePokemon");
 const catalogDiv = document.getElementById("catalog");
 const cartDiv = document.getElementById("cart");
 const totalPrice = document.getElementById("total");
+const clearButton = document.getElementById("clearButton")
 
 const createToast = msg => {
 	return Toastify({
@@ -172,5 +173,26 @@ if (localStorage.getItem("cart")) {
 }
 
 namePokemon.addEventListener("change", handleChange);
+clearButton.addEventListener("click", () => {
+	Swal.fire({
+		title: '¿Está seguro que que desea vaciar el carrito?',
+		text: "Tener presente que este cambio no es reversible",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#dc3545',
+		cancelButtonColor: '#dc3545',
+		confirmButtonText: 'Si, deseo vaciarlo'
+	}).then((result) => {
+		if (result.isConfirmed) {
+		clearCart()	
+		Swal.fire({
+			title:'¡Vacio!',
+			text:'El carrito se ha vaciado con exito',
+			icon:'success',
+			confirmButtonColor: '#dc3545',
+		})
+		}
+	})
+});
 
 showCatalog();
